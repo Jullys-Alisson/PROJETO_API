@@ -1,100 +1,100 @@
-﻿using Chapter.Models;
-using Chapter.Repositories;
+﻿using Chapter.Interfaces;
+using Chapter.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chapter.Controllers
 {
-    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class LivroController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        private readonly LivroRepository _livroRepository;
+        private readonly IUsuarioRepository _iUsuarioRepository;
 
-        public LivroController(LivroRepository livroRepository)
+        public UsuarioController(IUsuarioRepository iUsuarioRepository)
         {
-            _livroRepository = livroRepository;
+            _iUsuarioRepository = iUsuarioRepository;
         }
+
         [HttpGet]
+
         public IActionResult Listar()
         {
             try
             {
-                return Ok(_livroRepository.Listar());
+                return Ok(_iUsuarioRepository.Listar());
             }
             catch (Exception e)
             {
+
                 throw new Exception(e.Message);
             }
         }
+
         [HttpGet("{id}")]
-
-        public ActionResult BuscarPorId(int id)
-
+        public IActionResult BuscarPorId(int id)
         {
-
             try
             {
-                Livro LivroBuscado = _livroRepository.BuscarPorId(id);
+                Usuario usuarioEncontrado = _iUsuarioRepository.BuscarPorId(id);
 
-                if (LivroBuscado == null)
+                if (usuarioEncontrado == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(LivroBuscado);
+                return Ok(usuarioEncontrado);
             }
-
             catch (Exception e)
             {
+
                 throw new Exception(e.Message);
             }
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Livro livro)
+        public IActionResult Cadastrar(Usuario usuario)
         {
             try
             {
-                _livroRepository.Cadastrar(livro);
-                //return StatusCode(201);
-                return Ok("Livro cadastrado com sucesso");
+                _iUsuarioRepository.Cadastrar(usuario);
+                return StatusCode(201);
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
-            }
-        }
 
-        [HttpDelete("{id}")]
-        public IActionResult Deletar(int id)
-        {
-            try
-            {
-                _livroRepository.Deletar(id);
-                return Ok("Livro Deletado");
-            }
-            catch (Exception e)
-            {
                 throw new Exception(e.Message);
             }
         }
 
         [HttpPut("{id}")]
-
-        public IActionResult Alterar(int id, Livro livro)
+        public IActionResult Alterar(int id, Usuario usuario)
         {
             try
             {
-                _livroRepository.Atualizar(id, livro);
-                return StatusCode(204);
+                _iUsuarioRepository.Atualizar(id, usuario);
+                return Ok("Usuário Cadastrado");
+
             }
             catch (Exception e)
             {
+
                 throw new Exception(e.Message);
             }
         }
+        [HttpDelete("{id}")]
+        public IActionResult Remover(int id)
+        {
+            try
+            {
+                _iUsuarioRepository.Deletar(id);
+                return Ok("Usuário deletado com sucesso");
+            }
+            catch (Exception e)
+            {
 
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

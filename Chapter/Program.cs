@@ -1,6 +1,7 @@
 using Chapter.Contexts;
 using Chapter.Interfaces;
 using Chapter.Repositories;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,25 @@ builder.Services.AddCors( options =>
     {
         policy.WithOrigins("https://jullys-alisson.github.io/").AllowAnyHeader().AllowAnyMethod();
     });
+});
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+
+}).AddJwtBearer("JwtBearer", options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true,
+        ValidAudience = "chapter.webapi",
+        ValidateIssuer = true,
+        ValidIssuer = "chapter.webapi",
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromMinutes(20),
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chapter-chave-autenticacao"))
+     };
 });
 
 builder.Services.AddScoped<ChapterContext, ChapterContext>();
@@ -38,6 +58,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("PoliticaCors");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

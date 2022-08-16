@@ -7,7 +7,7 @@ using Chapter.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace TesteIntagracao.Controllers
+namespace TesteIntegracao.Controllers
 {
     public class LoginControllerTest
     {

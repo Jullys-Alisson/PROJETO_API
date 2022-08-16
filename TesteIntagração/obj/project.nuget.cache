@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pBumBxs9PmbNwU3T7QKt1y69jMWB+o5c3pzaSUwFkmxsf8jz+MlCmIotgVnM4rLY/AXDGAg7we4pasVTqviLBQ==",
+  "dgSpecHash": "rL/P5Zv7Egya1Gjer0pnBRCtdcbiVQOKXrx+CAVTP6lgxuRuKMo89B41SGYTCxqz6YuWg2noDzfDUbHHZIh17w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntagracao.csproj",
+  "projectFilePath": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntegracao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aliss\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\aliss\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

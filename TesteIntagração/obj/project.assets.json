@@ -8122,9 +8122,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntagracao.csproj",
-      "projectName": "TesteIntagracao",
-      "projectPath": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntagracao.csproj",
+      "projectUniqueName": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntegracao.csproj",
+      "projectName": "TesteIntegracao",
+      "projectPath": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\TesteIntegracao.csproj",
       "packagesPath": "C:\\Users\\aliss\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\aliss\\source\\repos\\Chapter\\TesteIntagração\\obj\\",
       "projectStyle": "PackageReference",

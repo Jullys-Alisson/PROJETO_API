@@ -9,7 +9,7 @@ namespace Chapter.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class LivroController : ControllerBase
     {
         private readonly LivroRepository _livroRepository;
@@ -31,7 +31,7 @@ namespace Chapter.Controllers
             }
         }
 
-        [Authorize(Roles = "0")]
+        //[Authorize]
         [HttpGet("{id}")]
 
         public ActionResult BuscarPorId(int id)
